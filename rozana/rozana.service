@@ -1,0 +1,15 @@
+[Unit]
+Description=Rozana planner bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/rozana
+EnvironmentFile=/home/ubuntu/rozana/.env
+ExecStart=/home/ubuntu/rozana/venv/bin/python -m rozana.bot
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
